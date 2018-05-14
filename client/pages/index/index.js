@@ -22,7 +22,7 @@ Page({
         qcloud.login({
             success(result) {
                 if (result) {
-                    util.showSuccess('登录成功')
+                    util.showSuccess('登录成功');
                     that.setData({
                         userInfo: result,
                         logged: true
@@ -53,6 +53,48 @@ Page({
                 console.log('登录失败', error)
             }
         })
+    },
+
+    bindGetUserInfo: function (e) {
+      if (this.data.logged) return;
+      util.showBusy('正在登录');
+      var that = this;
+   
+      // 查看是否授权
+      wx.getSetting({
+        success: function (res) {
+          if (res.authSetting['scope.userInfo']) {
+
+            wx.login({
+              success: function (loginResult) {
+                var loginParams = {
+                  code: loginResult.code,
+                  encryptedData: e.detail.encryptedData,
+                  iv: e.detail.iv,
+                }
+                qcloud.requestLogin({loginParams, success(){
+                    util.showSuccess('登录成功');
+                    that.setData({
+                      userInfo: e.detail.userInfo,
+                      logged: true
+                    })
+                  },
+                  fail(error) {
+                    util.showModel('登录失败', error)
+                    console.log('登录失败', error)
+                  }
+                });
+              },
+              fail: function (loginError) {
+                util.showModel('登录失败', loginError)
+                console.log('登录失败', loginError)
+              },
+            });
+          } else {
+            util.showModel('用户未授权', e.detail.errMsg);
+          }
+        }
+      });
     },
 
     // 切换是否带有登录态
