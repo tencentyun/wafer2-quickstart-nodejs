@@ -1,6 +1,12 @@
 {
-  "client": "./client",
-  "svr": "./server",
-  "miniprogramRoot": "./client",
-  "qcloudRoot": "./server"
+	"client": "./client",
+	"svr": "./server",
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx19a191d11b7418ce",
+	"projectname": "wafer2-node-demo",
+	"condition": {}
 }

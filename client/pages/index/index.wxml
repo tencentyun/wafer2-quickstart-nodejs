@@ -8,7 +8,7 @@
             background-size="cover"
         ></image>
         <view>
-            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击测试登录接口</button>
+            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="login">点击测试登录接口</button>
             <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
         </view>
     </view>
