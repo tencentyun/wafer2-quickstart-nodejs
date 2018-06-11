@@ -107,7 +107,7 @@ function login (opts) {
  * 只通过 wx.login 的 code 进行登录
  * 已经登录过的用户，只需要用 code 换取 openid，从数据库中查询出来即可
  * 无需每次都使用 wx.getUserInfo 去获取用户信息
- * 后端 Wafer SDK 需配合 2.x 及以上版本
+ * 后端 Wafer SDK 需配合 1.4.x 及以上版本
  * 
  * @param {Object}   opts           登录配置
  * @param {string}   opts.loginUrl  登录使用的 URL，服务器应该在这个 URL 上处理登录请求，建议配合服务端 SDK 使用
