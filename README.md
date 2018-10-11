@@ -4,6 +4,8 @@
 
 **登录接口切换公告：https://github.com/tencentyun/wafer2-quickstart/issues/10**
 
+**登录失败参考文档：https://github.com/tencentyun/wafer2-quickstart/issues/13**
+
 ## 目录
 
 - [腾讯云一站式部署开通指引](#腾讯云一站式部署开通指引)
